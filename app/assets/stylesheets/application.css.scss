@@ -13,3 +13,8 @@
  */
 @import "twitter/bootstrap";
 .active { font-weight: bold; }
+
+.btn-primary.active {
+  background-color: #428bca;
+  border-color: #357ebd;
+}

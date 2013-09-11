@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(params[:user])
+    user = User.create(user_params)
     user.save
     render :nothing => true
   end
@@ -14,5 +14,17 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.delete
     render :nothing => true
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.update_attributes(user_params)
+    render :nothing => true
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :avatar)
   end
 end

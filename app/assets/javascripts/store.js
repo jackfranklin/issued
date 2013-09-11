@@ -1,6 +1,2 @@
-// http://emberjs.com/guides/models/defining-a-store/
+Issued.ApplicationAdapter = DS.RESTAdapter.extend();
 
-Issued.Store = DS.Store.extend({
-  revision: 11,
-  adapter: DS.RESTAdapter.create()
-});

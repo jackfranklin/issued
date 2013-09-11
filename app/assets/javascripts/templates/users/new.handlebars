@@ -1,6 +1,27 @@
-<form {{action "newUser" on="submit"}}>
-  <p>Name: {{ input type="text" value=user_name }}</p>
-  <p>Email: {{ input type="text" value=user_email }}</p>
-  <p>Avatar: {{ input type="text" value=user_avatar }}</p>
-  <input type="submit" value="Add" />
+<form {{action "newUser" on="submit"}} role="form" class="form-horizontal">
+
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Name</label>
+    <div class="col-lg-5">
+      {{input type="text" value=user_name class="form-control"}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Email</label>
+    <div class="col-lg-5">
+      {{input type="text" value=user_email class="form-control"}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Avatar</label>
+    <div class="col-lg-5">
+      {{input type="text" value=user_avatar class="form-control"}}
+    </div>
+  </div>
+
+  <input type="submit" value="Add" class="btn btn-primary" />
+  {{#link-to 'users' class="btn btn-primary"}}Cancel{{/link-to}}
 </form>
+

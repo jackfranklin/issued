@@ -9,7 +9,13 @@
         {{#each itemController="user"}}
         <tr>
           <td>{{name}}</td>
-          <td>{{email}}</td>
+          {{#if isEditingEmail}}
+            <td>
+              {{edit-user-email value=email focus-out="acceptChanges" insert-newline="acceptChanges" }}
+            </td>
+          {{else}}
+            <td {{action "editEmail" on="doubleClick"}}>{{email}}</td>
+          {{/if}}
           <td><a href="#" {{action "deleteUser"}}>Delete</a></td>
         </tr>
         {{/each}}
