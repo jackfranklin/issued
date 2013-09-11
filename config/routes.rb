@@ -1,4 +1,6 @@
 Issued::Application.routes.draw do
+  resources :issues
+
   resources :users
 
   get "api/test"
