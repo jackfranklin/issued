@@ -1,3 +1,21 @@
-{{#each model}}
-  {{name}}
-{{/each}}
+<div class="container">
+  <div class="row">
+    <h4>Issued Users</h4>
+    <table class="table">
+      <thead>
+        <tr><th>Name</th><th>Email</th><th>Delete</th></tr>
+      </thead>
+      <tbody>
+        {{#each itemController="user"}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{email}}</td>
+          <td><a href="#" {{action "deleteUser"}}>Delete</a></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <p>{{#link-to "users.new"}}Add a User{{/link-to}}</p>
+    {{ outlet }}
+  </div>
+</div>
