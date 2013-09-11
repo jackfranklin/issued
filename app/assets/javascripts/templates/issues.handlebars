@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <h4>Issues</h4>
+    <table class="table">
+      <thead>
+        <tr><th>Title</th><th>Tags</th></tr>
+      </thead>
+      <tbody>
+        {{#each itemController="issue"}}
+        <tr>
+          <td>{{title}}</td>
+          <td>{{allTags}}</td>
+        </tr>
+
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
