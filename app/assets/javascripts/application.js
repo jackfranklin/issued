@@ -15,6 +15,7 @@
 //= require handlebars
 //= require ember
 //= require ember-data
+//= require lib/showdown.min.js
 //= require_self
 //= require issued
 

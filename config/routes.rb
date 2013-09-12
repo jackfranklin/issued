@@ -3,6 +3,8 @@ Issued::Application.routes.draw do
 
   resources :users
 
+  resources :tags
+
   get "api/test"
   get "page/index"
   root "page#index"

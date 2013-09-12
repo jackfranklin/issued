@@ -1,19 +1,25 @@
 <div class="container">
   <div class="row">
-    <h4>Issues</h4>
-    <table class="table">
-      <thead>
-        <tr><th>Title</th><th>Tags</th></tr>
-      </thead>
-      <tbody>
-        {{#each itemController="issue"}}
-        <tr>
-          <td>{{title}}</td>
-          <td>{{allTags}}</td>
-        </tr>
+    <div class="col-lg-4">
+      <h4>Issues</h4>
+      {{#link-to "issues.new" class="btn btn-primary"}}New Issue{{/link-to}}
+      <table class="table">
+        <thead>
+          <tr><th>Title</th><th>Tags</th></tr>
+        </thead>
+        <tbody>
+          {{#each model}}
+          <tr>
+            <td>{{#link-to 'issues.show' this}}{{title}}{{/link-to}}</td>
+            <td>{{tagString}}</td>
+          </tr>
 
-        {{/each}}
-      </tbody>
-    </table>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-8">
+      {{ outlet }}
+    </div>
   </div>
 </div>
