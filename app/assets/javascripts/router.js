@@ -26,7 +26,7 @@ Issued.LogoutRoute = Ember.Route.extend({
   },
   activate: function() {
     var self = this;
-    $.getJSON("/users/logout", function() {
+    $.getJSON("/logout", function() {
       self.transitionTo("index");
     });
   }

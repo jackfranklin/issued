@@ -1,7 +1,6 @@
 Issued::Application.routes.draw do
   resources :issues
 
-  get "users/logout" => "users#logout"
   resources :users
 
   resources :tags
@@ -9,6 +8,7 @@ Issued::Application.routes.draw do
   get "users/auth/:name/:password" => "users#auth"
 
   get "page/index"
+  get "logout" => "users#logout"
   root "page#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
