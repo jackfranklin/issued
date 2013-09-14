@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    {{#if userLoggedIn}}
+    {{#if controller.session.userLoggedIn}}
       Thanks for logging in.
       {{#link-to 'logout'}}Logout{{/link-to}}
     {{else}}

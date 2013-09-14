@@ -20,5 +20,11 @@
 //= require issued
 
 // for more details see: http://emberjs.com/guides/application/
-Issued = Ember.Application.create();
+Issued = Ember.Application.create({
+  ready: function() {
+    this.register('session:current', Issued.Session, {singleton: true});
+    this.inject("controller", "session", "session:current");
+    this.inject("route", "session", "session:current");
+  }
+});
 //= require_tree .

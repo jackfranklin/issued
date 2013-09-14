@@ -32,7 +32,8 @@ class UsersController < ApplicationController
     user = User.find_by_username(name)
     if user && user.authenticate(pass)
       session[:user_id] = user.id
-      render :json => { :success => true, :id => user.id }
+      session[:user_name] = user.username
+      render :json => { :success => true, :id => user.id, :name => user.username }
     else
       render :json => { :success => false }
     end

@@ -2,14 +2,21 @@
   <ul class="nav navbar-nav">
     <li>{{#link-to 'index'}}Home{{/link-to}}</li>
     <li>{{#link-to 'about'}}About{{/link-to}}</li>
-    <li>{{#link-to 'users'}}Users{{/link-to}}</li>
     <li>{{#link-to 'issues'}}Issues{{/link-to}}</li>
+    {{#if controller.session.userLoggedIn}}
+      <li>{{#link-to 'users'}}Users{{/link-to}}</li>
+    {{/if}}
     <li>{{#link-to 'tags'}}Tags{{/link-to}}</li>
   </ul>
-  {{#if userLoggedIn}}
-    <ul class="nav navbar-nav navbar-right">
+  <ul class="nav navbar-nav navbar-right">
+    {{#if controller.session.userLoggedIn}}
       <li>{{#link-to 'logout'}}Logout{{/link-to}}</li>
-    </ul>
-    <p class="navbar-text pull-right">Logged in as <strong>{{userName}}</strong></p>
+    {{else}}
+      <li>{{#link-to 'signin'}}Sign In{{/link-to}}</li>
+    {{/if}}
+  </ul>
+  {{#if controller.session.userLoggedIn}}
+    <p class="navbar-text pull-right">Logged in as <strong>{{controller.session.userName}}</strong></p>
   {{/if}}
+    </ul>
 </nav>

@@ -21,12 +21,10 @@ Issued.Router.map(function() {
 });
 
 Issued.LogoutRoute = Ember.Route.extend({
-  setupController: function(controller) {
-    this.controllerFor("application").set("userId", "");
-  },
   activate: function() {
     var self = this;
     $.getJSON("/logout", function() {
+      self.get("session").set("userId", "");
       self.transitionTo("index");
     });
   }
@@ -34,7 +32,7 @@ Issued.LogoutRoute = Ember.Route.extend({
 
 Issued.SigninRoute = Ember.Route.extend({
   activate: function() {
-    if(this.controllerFor("application").get("userLoggedIn")) {
+    if(this.get("session").get("userLoggedIn")) {
       this.transitionTo("index");
     }
   }
