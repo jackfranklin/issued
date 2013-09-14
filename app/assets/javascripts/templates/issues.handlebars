@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-lg-4">
       <h4>Issues</h4>
-      {{#link-to "issues.new" class="btn btn-primary"}}New Issue{{/link-to}}
+      {{#if controller.session.userLoggedIn}}
+        {{#link-to "issues.new" class="btn btn-primary"}}New Issue{{/link-to}}
+      {{/if}}
       <table class="table">
         <thead>
           <tr><th>Title</th><th>Tags</th></tr>

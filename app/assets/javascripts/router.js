@@ -51,6 +51,14 @@ Issued.IssuesRoute = Ember.Route.extend({
   }
 });
 
+Issued.IssuesNewRoute = Ember.Route.extend({
+  activate: function() {
+    if(!this.get("session").get("userLoggedIn")) {
+      this.transitionTo("index");
+    }
+  }
+});
+
 Issued.IssuesShowRoute = Ember.Route.extend({
   model: function(params) {
     return this.store.find("issue", params.id);
