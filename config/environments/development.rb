@@ -28,4 +28,6 @@ Issued::Application.configure do
   config.assets.debug = true
 
   config.ember.variant = :development
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

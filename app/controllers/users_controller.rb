@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
-    user.save
+    res = user.save
     render :nothing => true
   end
 
@@ -22,9 +22,21 @@ class UsersController < ApplicationController
     render :nothing => true
   end
 
+  def auth
+    name = params[:name]
+    pass = params[:password]
+    user = User.find_by_username(name)
+    if user && user.authenticate(pass)
+      session[:user_id] = user.id
+      render :json => { :success => true }
+    else
+      render :json => { :success => false }
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :avatar)
+    params.require(:user).permit(:name, :email, :avatar, :password, :password_confirmation, :username)
   end
 end

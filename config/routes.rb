@@ -5,7 +5,8 @@ Issued::Application.routes.draw do
 
   resources :tags
 
-  get "api/test"
+  get "users/auth/:name/:password" => "users#auth"
+
   get "page/index"
   root "page#index"
   # The priority is based upon order of creation: first created -> highest priority.
