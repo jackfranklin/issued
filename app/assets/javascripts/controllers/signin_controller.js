@@ -12,6 +12,8 @@ Issued.SigninController = Ember.Controller.extend({
       $.getJSON(url, function(data) {
         if(data.success) {
           self.get('controllers.application').set('userId', data.id);
+          self.set('user_name', '');
+          self.set('user_pass', '');
         }
       });
     }
