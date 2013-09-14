@@ -21,5 +21,4 @@
 
 // for more details see: http://emberjs.com/guides/application/
 Issued = Ember.Application.create();
-
 //= require_tree .

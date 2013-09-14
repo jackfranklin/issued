@@ -28,10 +28,15 @@ class UsersController < ApplicationController
     user = User.find_by_username(name)
     if user && user.authenticate(pass)
       session[:user_id] = user.id
-      render :json => { :success => true }
+      render :json => { :success => true, :id => user.id }
     else
       render :json => { :success => false }
     end
+  end
+
+  def logout
+    session[:user_id] = nil
+    render :json => { :success => true }
   end
 
   private

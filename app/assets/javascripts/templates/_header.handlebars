@@ -4,5 +4,8 @@
   <li>{{#link-to 'users'}}Users{{/link-to}}</li>
   <li>{{#link-to 'issues'}}Issues{{/link-to}}</li>
   <li>{{#link-to 'tags'}}Tags{{/link-to}}</li>
+  {{#if userLoggedIn}}
+    <li>{{#link-to 'logout'}}Logout{{/link-to}}</li>
+  {{/if}}
 </ul>
 

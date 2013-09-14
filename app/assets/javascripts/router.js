@@ -14,6 +14,30 @@ Issued.Router.map(function() {
   });
 
   this.route("about");
+
+  this.route("signin");
+
+  this.route("logout");
+});
+
+Issued.LogoutRoute = Ember.Route.extend({
+  setupController: function(controller) {
+    this.controllerFor("application").set("userId", "");
+  },
+  activate: function() {
+    var self = this;
+    $.getJSON("/users/logout", function() {
+      self.transitionTo("index");
+    });
+  }
+});
+
+Issued.SigninRoute = Ember.Route.extend({
+  activate: function() {
+    if(this.controllerFor("application").get("userLoggedIn")) {
+      this.transitionTo("index");
+    }
+  }
 });
 
 

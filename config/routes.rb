@@ -1,6 +1,7 @@
 Issued::Application.routes.draw do
   resources :issues
 
+  get "users/logout" => "users#logout"
   resources :users
 
   resources :tags

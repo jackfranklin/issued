@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    {{#if userLoggedIn}}
+      Thanks for logging in.
+      {{#link-to 'logout'}}Logout{{/link-to}}
+    {{else}}
+      <form {{action "newAuth" on="submit"}} role="form" class="form-horizontal">
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Username</label>
+          <div class="col-lg-5">
+            {{input type="text" value=user_name class="form-control"}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Password</label>
+          <div class="col-lg-5">
+            {{input type="text" value=user_pass class="form-control"}}
+          </div>
+        </div>
+
+        <input type="submit" value="Sign In" class="btn btn-primary" />
+      </form>
+    {{/if}}
+  </div>
+</div>
